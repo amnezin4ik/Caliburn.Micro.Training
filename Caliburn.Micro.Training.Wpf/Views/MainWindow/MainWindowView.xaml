@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindowView" Height="300" Width="300">
+        Title="MainWindowView" Height="300" Width="500">
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label Content="Name" Margin="10"/>
@@ -19,6 +19,15 @@
                     </ControlTemplate>
                 </Validation.ErrorTemplate>
             </TextBox>
+            <ListBox Name="UsersCollection" HorizontalAlignment="Center">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" Margin="5" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
     </StackPanel>
 </Window>
