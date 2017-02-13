@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.Linq;
 using FluentValidation;
 
-namespace Caliburn.Micro.Training.Application.ViewModels
+namespace Caliburn.Micro.Training.Wpf.ViewModels
 {
-    public abstract class BaseValidatedViewModel : PropertyChangedBase, IDataErrorInfo
+    public abstract class BaseValidatedViewModel : Screen, IDataErrorInfo
     {
         protected readonly IValidator _validator;
         protected BaseValidatedViewModel(IValidator validator)

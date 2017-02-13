@@ -8,7 +8,7 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label Content="Name" Margin="10"/>
-            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Width="200" Margin="10">
+            <TextBox Text="{Binding Name, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" Width="200" Margin="10">
                 <Validation.ErrorTemplate>
                     <ControlTemplate>
                         <StackPanel Orientation="Horizontal">

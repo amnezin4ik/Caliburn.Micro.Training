@@ -1,11 +1,8 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using System.Windows;
 using Autofac;
 using Caliburn.Micro.Autofac;
-using Caliburn.Micro.Training.Application;
-using Caliburn.Micro.Training.Application.ViewModels.MainWindow;
+using Caliburn.Micro.Training.Infrastructure;
+using Caliburn.Micro.Training.Wpf.ViewModels.MainWindow;
 
 namespace Caliburn.Micro.Training.Wpf
 {
@@ -16,9 +13,15 @@ namespace Caliburn.Micro.Training.Wpf
             Initialize();
         }
 
+        protected override void OnStartup(object sender, StartupEventArgs e)
+        {
+            DisplayRootViewFor<MainWindowViewModel>();
+        }
+
         protected override void ConfigureContainer(ContainerBuilder builder)
         {
-            builder.RegisterModule<ApplicationDiModule>();
+            builder.RegisterModule<WpfDiModule>();
+            builder.RegisterModule<InfrastructureDiModule>();
         }
 
         protected override void ConfigureBootstrapper()
@@ -27,22 +30,10 @@ namespace Caliburn.Micro.Training.Wpf
             var config = new TypeMappingConfiguration
             {
                 DefaultSubNamespaceForViews = "Caliburn.Micro.Training.Wpf.Views",
-                DefaultSubNamespaceForViewModels = "Caliburn.Micro.Training.Application.ViewModels"
+                DefaultSubNamespaceForViewModels = "Caliburn.Micro.Training.Wpf.ViewModels"
             };
             ViewLocator.ConfigureTypeMappings(config);
             ViewModelLocator.ConfigureTypeMappings(config);
-        }
-
-        protected override void OnStartup(object sender, StartupEventArgs e)
-        {
-            DisplayRootViewFor<MainWindowViewModel>();
-        }
-
-        protected override IEnumerable<Assembly> SelectAssemblies()
-        {
-            var assemblies = base.SelectAssemblies().ToList();
-            assemblies.Add(typeof(MainWindowViewModel).Assembly);
-            return assemblies;
         }
     }
 }

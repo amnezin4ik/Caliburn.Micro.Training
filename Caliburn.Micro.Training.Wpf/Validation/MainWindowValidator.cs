@@ -1,7 +1,7 @@
-﻿using Caliburn.Micro.Training.Application.ViewModels.MainWindow;
+﻿using Caliburn.Micro.Training.Wpf.ViewModels.MainWindow;
 using FluentValidation;
 
-namespace Caliburn.Micro.Training.Application.Validation
+namespace Caliburn.Micro.Training.Wpf.Validation
 {
     public class MainWindowValidator : AbstractValidator<MainWindowViewModel>
     {
