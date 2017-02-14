@@ -19,7 +19,7 @@
                     </ControlTemplate>
                 </Validation.ErrorTemplate>
             </TextBox>
-            <ListBox Name="UsersCollection" HorizontalAlignment="Center">
+            <!--<ListBox Name="UsersCollection" HorizontalAlignment="Center">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -27,7 +27,7 @@
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-            </ListBox>
+            </ListBox>-->
         </StackPanel>
     </StackPanel>
 </Window>

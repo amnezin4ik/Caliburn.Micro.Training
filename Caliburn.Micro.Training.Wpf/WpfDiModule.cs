@@ -9,7 +9,7 @@ namespace Caliburn.Micro.Training.Wpf
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<MainWindowViewModel>().AsSelf();
-            builder.RegisterType<MainWindowValidator>().AsSelf().SingleInstance();
+            //builder.RegisterType<MainWindowValidator>().AsSelf().SingleInstance();
         }
     }
 }

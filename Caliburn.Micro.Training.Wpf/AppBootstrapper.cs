@@ -1,6 +1,8 @@
 using System.Windows;
 using Autofac;
 using Caliburn.Micro.Autofac;
+using Caliburn.Micro.Training.Allication.Services;
+using Caliburn.Micro.Training.Application;
 using Caliburn.Micro.Training.Infrastructure;
 using Caliburn.Micro.Training.Wpf.ViewModels.MainWindow;
 
@@ -21,7 +23,9 @@ namespace Caliburn.Micro.Training.Wpf
         protected override void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule<WpfDiModule>();
+            builder.RegisterModule<ApplicationDiModule>();
             builder.RegisterModule<InfrastructureDiModule>();
+            builder.RegisterModule<ApplicationServicesDiModule>();
         }
 
         protected override void ConfigureBootstrapper()

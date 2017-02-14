@@ -1,37 +1,47 @@
-using System.Collections.ObjectModel;
-using Caliburn.Micro.Training.Infrastructure.Dto;
-using Caliburn.Micro.Training.Infrastructure.Repository;
-using Caliburn.Micro.Training.Wpf.Validation;
+using System.ComponentModel;
+using Caliburn.Micro.Training.Allication.Services.Services;
+using Caliburn.Micro.Training.Application.Entity;
 
 namespace Caliburn.Micro.Training.Wpf.ViewModels.MainWindow
 {
-    public class MainWindowViewModel : BaseValidatedViewModel
+    public class MainWindowViewModel : Screen, IDataErrorInfo//BaseValidatedViewModel
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserService _userService;
 
-        public MainWindowViewModel(MainWindowValidator validator, IUserRepository userRepository)
-            : base(validator)
+        public MainWindowViewModel(IUserService userService)
         {
-            _userRepository = userRepository;
+            _userService = userService;
         }
 
-        private string _name;
-        public string Name
+        private User _currentUser;
+
+
+        public string FirstName
         {
-            get { return _name; }
+            get { return _currentUser.FirstName; }
             set
             {
-                _name = value;
-                NotifyOfPropertyChange(nameof(Name));
+                _currentUser.FirstName = value;
+                NotifyOfPropertyChange(nameof(FirstName));
             }
         }
 
         protected override async void OnActivate()
         {
-            var allUsers = await _userRepository.GetAllAsync();
-            UsersCollection = new ObservableCollection<User>(allUsers);
+            _currentUser = await _userService.FindUser(1);
         }
 
-        public ObservableCollection<User> UsersCollection { get; protected set; }
+        #region IDataErrorInfo
+        public string this[string columnName]
+        {
+            get { return _currentUser[columnName]; }
+        }
+
+        public string Error
+        {
+            get { return _currentUser.Error; }
+        }
+        #endregion
+
     }
 }

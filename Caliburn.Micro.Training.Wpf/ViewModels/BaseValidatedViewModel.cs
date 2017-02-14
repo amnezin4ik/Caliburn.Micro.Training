@@ -17,7 +17,7 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels
         {
             get
             {
-                string propertyErrorMessage = String.Empty;
+                string propertyErrorMessage = string.Empty;
                 var validationResult = _validator.Validate(this);
                 if (validationResult != null && validationResult.Errors?.Any() == true)
                 {
