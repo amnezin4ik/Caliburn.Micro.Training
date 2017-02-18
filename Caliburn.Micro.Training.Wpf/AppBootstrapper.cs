@@ -21,11 +21,11 @@ namespace Caliburn.Micro.Training.Wpf
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
             //var viewModelSettings = new Dictionary<string, object>();
-
             //var userService = (IUserService)Container.Resolve(typeof (IUserService));
             //var currentUser = userService.FindUser(1).Result;
             //viewModelSettings.Add("currentUser", currentUser);
-            DisplayRootViewFor<MainWindowViewModel>(viewModelSettings);
+            //DisplayRootViewFor<MainWindowViewModel>(viewModelSettings);
+            DisplayRootViewFor<MainWindowViewModel>();
         }
 
         protected override void ConfigureContainer(ContainerBuilder builder)
