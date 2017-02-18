@@ -1,10 +1,11 @@
 using System.Windows;
 using Autofac;
+using AutoMapper;
 using Caliburn.Micro.Autofac;
-using Caliburn.Micro.Training.Allication.Services;
-using Caliburn.Micro.Training.Application;
+using Caliburn.Micro.Training.Domain;
+using Caliburn.Micro.Training.Domain.Services;
 using Caliburn.Micro.Training.Infrastructure;
-using Caliburn.Micro.Training.Wpf.ViewModels.MainWindow;
+using Caliburn.Micro.Training.Wpf.ViewModels;
 
 namespace Caliburn.Micro.Training.Wpf
 {
@@ -23,9 +24,21 @@ namespace Caliburn.Micro.Training.Wpf
         protected override void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule<WpfDiModule>();
-            builder.RegisterModule<ApplicationDiModule>();
+            builder.RegisterModule<DomainDiModule>();
             builder.RegisterModule<InfrastructureDiModule>();
-            builder.RegisterModule<ApplicationServicesDiModule>();
+            builder.RegisterModule<DomainServicesDiModule>();
+            RegisterAutomapperConfiguration(builder);
+        }
+
+        private void RegisterAutomapperConfiguration(ContainerBuilder builder)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.ConstructServicesUsing(type => Container.Resolve(type));
+                cfg.AddProfile(new DomainMappingProfile());
+            });
+            var mapper = config.CreateMapper();
+            builder.RegisterInstance(mapper).As<IMapper>();
         }
 
         protected override void ConfigureBootstrapper()

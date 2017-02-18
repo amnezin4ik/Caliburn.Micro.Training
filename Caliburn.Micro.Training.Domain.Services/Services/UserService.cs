@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using AutoMapper;
-using Caliburn.Micro.Training.Application.Model;
+using Caliburn.Micro.Training.Domain.Model;
 using Caliburn.Micro.Training.Infrastructure.Repository;
 using Dto = Caliburn.Micro.Training.Infrastructure.Dto;
 
-namespace Caliburn.Micro.Training.Allication.Services.Services
+namespace Caliburn.Micro.Training.Domain.Services.Services
 {
     internal class UserService : IUserService
     {

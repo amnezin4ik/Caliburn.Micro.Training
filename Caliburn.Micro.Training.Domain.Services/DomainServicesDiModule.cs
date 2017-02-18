@@ -1,9 +1,10 @@
 using Autofac;
-using Caliburn.Micro.Training.Allication.Services.Services;
+using Caliburn.Micro.Training.Domain.Services.Converters;
+using Caliburn.Micro.Training.Domain.Services.Services;
 
-namespace Caliburn.Micro.Training.Allication.Services
+namespace Caliburn.Micro.Training.Domain.Services
 {
-    public class ApplicationServicesDiModule : Module
+    public class DomainServicesDiModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {

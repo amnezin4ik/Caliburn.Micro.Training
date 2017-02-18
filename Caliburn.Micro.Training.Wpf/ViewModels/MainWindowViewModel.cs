@@ -1,11 +1,11 @@
-using System.ComponentModel;
-using Caliburn.Micro.Training.Allication.Services.Services;
-using Caliburn.Micro.Training.Application.Entity;
+using Caliburn.Micro.Training.Domain.Model;
+using Caliburn.Micro.Training.Domain.Services.Services;
 
-namespace Caliburn.Micro.Training.Wpf.ViewModels.MainWindow
+namespace Caliburn.Micro.Training.Wpf.ViewModels
 {
-    public class MainWindowViewModel : Screen, IDataErrorInfo//BaseValidatedViewModel
+    public class MainWindowViewModel : Screen
     {
+        private User _currentUser;
         private readonly IUserService _userService;
 
         public MainWindowViewModel(IUserService userService)
@@ -13,16 +13,13 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels.MainWindow
             _userService = userService;
         }
 
-        private User _currentUser;
-
-
         public string FirstName
         {
             get { return _currentUser.FirstName; }
             set
             {
                 _currentUser.FirstName = value;
-                NotifyOfPropertyChange(nameof(FirstName));
+                NotifyOfPropertyChange();
             }
         }
 

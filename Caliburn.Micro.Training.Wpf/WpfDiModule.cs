@@ -1,6 +1,5 @@
 using Autofac;
-using Caliburn.Micro.Training.Wpf.Validation;
-using Caliburn.Micro.Training.Wpf.ViewModels.MainWindow;
+using Caliburn.Micro.Training.Wpf.ViewModels;
 
 namespace Caliburn.Micro.Training.Wpf
 {
@@ -9,7 +8,6 @@ namespace Caliburn.Micro.Training.Wpf
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<MainWindowViewModel>().AsSelf();
-            //builder.RegisterType<MainWindowValidator>().AsSelf().SingleInstance();
         }
     }
 }

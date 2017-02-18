@@ -1,7 +1,7 @@
-using Caliburn.Micro.Training.Application.Model;
+using Caliburn.Micro.Training.Domain.Model;
 using FluentValidation;
 
-namespace Caliburn.Micro.Training.Application.Validation
+namespace Caliburn.Micro.Training.Domain.Validation
 {
     public class UserValidator : AbstractValidator<User>
     {

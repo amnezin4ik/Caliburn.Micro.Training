@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using Caliburn.Micro.Training.Application.Model;
+using Caliburn.Micro.Training.Domain.Model;
 
-namespace Caliburn.Micro.Training.Allication.Services.Services
+namespace Caliburn.Micro.Training.Domain.Services.Services
 {
     public interface IUserService
     {

@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace Caliburn.Micro.Training.Wpf.Views.MainWindow
+namespace Caliburn.Micro.Training.Wpf.Views
 {
     /// <summary>
     /// Interaction logic for MainWindowView.xaml

@@ -30,7 +30,7 @@ namespace Caliburn.Micro.Training.Infrastructure.Repository
         {
             using (IDbConnection db = _databaseSqlConnectionFactory.GetSqlConnection())
             {
-                var userQuery = await db.QueryAsync<User>("SELECT * FROM [User] WHERE Id = @id", new { userId });
+                var userQuery = await db.QueryAsync<User>("SELECT * FROM [User] WHERE Id = @userId", new { userId });
                 return userQuery.FirstOrDefault();
             }
         }
@@ -60,7 +60,7 @@ namespace Caliburn.Micro.Training.Infrastructure.Repository
         {
             using (IDbConnection db = _databaseSqlConnectionFactory.GetSqlConnection())
             {
-                var sqlQuery = "DELETE FROM [User] WHERE Id = @id";
+                var sqlQuery = "DELETE FROM [User] WHERE Id = @userId";
                 await db.ExecuteAsync(sqlQuery, new { userId });
             }
         }

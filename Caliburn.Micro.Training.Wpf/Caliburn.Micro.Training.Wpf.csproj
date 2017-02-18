@@ -39,6 +39,10 @@
       <HintPath>..\packages\Autofac.4.3.0\lib\net45\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Caliburn.Micro, Version=3.0.3.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.Core.3.0.3\lib\net45\Caliburn.Micro.dll</HintPath>
       <Private>True</Private>
@@ -59,6 +63,7 @@
       <HintPath>..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.JScript" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -84,10 +89,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppBootstrapper.cs" />
-    <Compile Include="Validation\MainWindowValidator.cs" />
-    <Compile Include="ViewModels\BaseValidatedViewModel.cs" />
-    <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
-    <Compile Include="Views\MainWindow\MainWindowView.xaml.cs">
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
@@ -95,9 +98,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="WpfDiModule.cs" />
-    <Page Include="Views\MainWindow\MainWindowView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\MainWindowView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +132,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Caliburn.Micro.Training.Domain.Services\Caliburn.Micro.Training.Domain.Services.csproj">
+      <Project>{877D3061-71F8-42F6-ACFD-9DC3A29AA32B}</Project>
+      <Name>Caliburn.Micro.Training.Domain.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Caliburn.Micro.Training.Domain\Caliburn.Micro.Training.Domain.csproj">
+      <Project>{78454F12-3C56-4EAE-92B8-04672F24CBD6}</Project>
+      <Name>Caliburn.Micro.Training.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Caliburn.Micro.Training.Infrastructure.Persistence\Caliburn.Micro.Training.Infrastructure.csproj">
       <Project>{A368C793-8ED7-4AC6-B9DA-2A9016040EAB}</Project>
       <Name>Caliburn.Micro.Training.Infrastructure</Name>

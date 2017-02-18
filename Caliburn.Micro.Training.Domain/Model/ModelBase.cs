@@ -1,18 +1,29 @@
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using FluentValidation;
 
-namespace Caliburn.Micro.Training.Wpf.ViewModels
+namespace Caliburn.Micro.Training.Domain.Model
 {
-    public abstract class BaseValidatedViewModel : Screen, IDataErrorInfo
+    public abstract class ModelBase : INotifyPropertyChanged, IDataErrorInfo
     {
-        protected readonly IValidator _validator;
-        protected BaseValidatedViewModel(IValidator validator)
+        private readonly IValidator _validator;
+        protected ModelBase(IValidator validator)
         {
             _validator = validator;
         }
 
+        #region INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+
+        #region IDataErrorInfo
         public string this[string propertyName]
         {
             get
@@ -44,5 +55,6 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels
                 return string.Empty;
             }
         }
+        #endregion
     }
 }
