@@ -18,13 +18,14 @@ namespace Caliburn.Micro.Training.Domain.Services.Converters
 
         public User Convert(Infrastructure.Dto.User source, User destination, ResolutionContext context)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
             if (source == null)
             {
                 return null;
             }
             destination = new User(_userValidator);
-            _mapper.Map(source, destination);
+            //_mapper.Map(source, destination);
+            destination.FirstName = source.FirstName;
             return destination;
         }
     }

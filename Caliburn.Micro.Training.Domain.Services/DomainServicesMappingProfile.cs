@@ -5,11 +5,11 @@ using Dto = Caliburn.Micro.Training.Infrastructure.Dto;
 
 namespace Caliburn.Micro.Training.Domain.Services
 {
-    public class DomainMappingProfile : Profile
+    public class DomainServicesMappingProfile : Profile
     {
-        public DomainMappingProfile()
+        public DomainServicesMappingProfile()
         {
-            CreateMap<Dto.User, User>().PreserveReferences();//.ConvertUsing<UserConverter>();
+            CreateMap<Dto.User, User>().ConvertUsing<UserConverter>();//.PreserveReferences();
         }
     }
 }

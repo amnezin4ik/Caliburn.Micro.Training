@@ -1,5 +1,6 @@
 using Caliburn.Micro.Training.Domain.Model;
 using Caliburn.Micro.Training.Domain.Services.Services;
+using Caliburn.Micro.Training.Domain.Validation;
 
 namespace Caliburn.Micro.Training.Wpf.ViewModels
 {
@@ -8,14 +9,18 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels
         private User _currentUser;
         private readonly IUserService _userService;
 
-        public MainWindowViewModel(IUserService userService)
+        public MainWindowViewModel(IUserService userService, User currentUser)
         {
             _userService = userService;
+            _currentUser = currentUser;
         }
 
         public string FirstName
         {
-            get { return _currentUser.FirstName; }
+            get
+            {
+                return _currentUser.FirstName;
+            }
             set
             {
                 _currentUser.FirstName = value;
@@ -23,10 +28,16 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels
             }
         }
 
-        protected override async void OnActivate()
-        {
-            _currentUser = await _userService.FindUser(1);
-        }
+        //protected override async void OnInitialize()
+        //{
+        //    base.OnInitialize();
+        //    _currentUser = await _userService.FindUser(1);
+        //}
+
+        //protected override async void OnActivate()
+        //{
+        //    _currentUser = await _userService.FindUser(1);
+        //}
 
         #region IDataErrorInfo
         public string this[string columnName]

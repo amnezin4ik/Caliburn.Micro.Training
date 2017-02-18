@@ -11,7 +11,7 @@ namespace Caliburn.Micro.Training.Domain.Model
         private DateTime _dateOfBirth;
         private string _email;
 
-        public User(UserValidator validator) 
+        public User(UserValidator validator)
             : base(validator) { }
 
         public int Id
@@ -19,11 +19,8 @@ namespace Caliburn.Micro.Training.Domain.Model
             get { return _id; }
             set
             {
-                if (_id != value)
-                {
-                    _id = value;
-                    OnPropertyChanged();
-                }
+                _id = value;
+                OnPropertyChanged();
             }
         }
 
@@ -32,11 +29,8 @@ namespace Caliburn.Micro.Training.Domain.Model
             get { return _firstName; }
             set
             {
-                if (_firstName != value)
-                {
-                    _firstName = value;
-                    OnPropertyChanged();
-                }
+                _firstName = value;
+                OnPropertyChanged();
             }
         }
 
@@ -45,11 +39,8 @@ namespace Caliburn.Micro.Training.Domain.Model
             get { return _lastName; }
             set
             {
-                if (_lastName != value)
-                {
-                    _lastName = value;
-                    OnPropertyChanged();
-                }
+                _lastName = value;
+                OnPropertyChanged();
             }
         }
 
@@ -58,11 +49,8 @@ namespace Caliburn.Micro.Training.Domain.Model
             get { return _dateOfBirth; }
             set
             {
-                if (_dateOfBirth != value)
-                {
-                    _dateOfBirth = value;
-                    OnPropertyChanged();
-                }
+                _dateOfBirth = value;
+                OnPropertyChanged();
             }
         }
 
@@ -71,11 +59,8 @@ namespace Caliburn.Micro.Training.Domain.Model
             get { return _email; }
             set
             {
-                if (_email != value)
-                {
-                    _email = value;
-                    OnPropertyChanged();
-                }
+                _email = value;
+                OnPropertyChanged();
             }
         }
     }
