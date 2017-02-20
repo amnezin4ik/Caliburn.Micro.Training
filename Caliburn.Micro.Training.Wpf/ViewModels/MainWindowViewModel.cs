@@ -1,7 +1,6 @@
 using System.ComponentModel;
 using Caliburn.Micro.Training.Domain.Model;
 using Caliburn.Micro.Training.Domain.Services.Services;
-using Caliburn.Micro.Training.Domain.Validation;
 
 namespace Caliburn.Micro.Training.Wpf.ViewModels
 {
@@ -15,34 +14,33 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels
             _userService = userService;
         }
 
-        public string FirstName
+        public User CurrentUser
         {
             get
             {
-                return _currentUser.FirstName;
+                return _currentUser;
             }
             set
             {
-                _currentUser.FirstName = value;
+                _currentUser = value;
                 NotifyOfPropertyChange();
             }
         }
 
         protected override async void OnInitialize()
         {
-            base.OnInitialize();
-            _currentUser = new User(new UserValidator());
+            CurrentUser = await _userService.FindUser(1);
         }
 
         #region IDataErrorInfo
         public string this[string columnName]
         {
-            get { return _currentUser[columnName]; }
+            get { return CurrentUser[columnName]; }
         }
 
         public string Error
         {
-            get { return _currentUser.Error; }
+            get { return CurrentUser.Error; }
         }
         #endregion
     }
