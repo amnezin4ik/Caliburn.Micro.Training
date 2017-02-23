@@ -89,7 +89,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="ViewModels\UsersListViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\UserInfoViewModel.cs" />
     <Compile Include="Views\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>
     </Compile>
@@ -97,10 +100,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\UserInfoView.xaml.cs">
+      <DependentUpon>UserInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsersListView.xaml.cs">
+      <DependentUpon>UsersListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WpfDiModule.cs" />
     <Page Include="Views\MainWindowView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UsersListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

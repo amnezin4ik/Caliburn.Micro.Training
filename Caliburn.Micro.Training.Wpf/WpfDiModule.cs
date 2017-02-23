@@ -1,5 +1,5 @@
 using Autofac;
-using Caliburn.Micro.Training.Wpf.ViewModels;
+using Caliburn.Micro.Training.Wpf.Services;
 
 namespace Caliburn.Micro.Training.Wpf
 {
@@ -7,7 +7,7 @@ namespace Caliburn.Micro.Training.Wpf
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<MainWindowViewModel>().AsSelf();
+            builder.RegisterType<NavigationService>().AsSelf().SingleInstance();
         }
     }
 }
