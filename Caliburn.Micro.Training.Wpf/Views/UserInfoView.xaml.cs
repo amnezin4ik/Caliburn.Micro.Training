@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Caliburn.Micro.Training.Wpf.Views
@@ -17,7 +18,7 @@ namespace Caliburn.Micro.Training.Wpf.Views
     /// <summary>
     /// Interaction logic for UserInfoView.xaml
     /// </summary>
-    public partial class UserInfoView : Window
+    public partial class UserInfoView : UserControl
     {
         public UserInfoView()
         {

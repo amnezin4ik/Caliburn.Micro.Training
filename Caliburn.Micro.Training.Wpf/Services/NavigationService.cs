@@ -7,7 +7,7 @@ namespace Caliburn.Micro.Training.Wpf.Services
     {
         private bool _isInitialized;
         private readonly ILifetimeScope _container;
-        private Conductor<IScreen> _conductorWindow;
+        private IConductor _conductorWindow;
 
         public NavigationService(ILifetimeScope container)
         {
@@ -15,7 +15,7 @@ namespace Caliburn.Micro.Training.Wpf.Services
             _isInitialized = false;
         }
 
-        public void Initialize(Conductor<IScreen> conductorWindow)
+        public void Initialize(IConductor conductorWindow)
         {
             _conductorWindow = conductorWindow;
             _isInitialized = true;

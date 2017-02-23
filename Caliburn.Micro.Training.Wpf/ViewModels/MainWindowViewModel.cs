@@ -9,13 +9,12 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels
         public MainWindowViewModel(NavigationService navigationService)
         {
             _navigationService = navigationService;
+        }
+
+        protected override void OnInitialize()
+        {
             _navigationService.Initialize(this);
             _navigationService.Navigate<UsersListViewModel>();
         }
-
-        //protected override void OnViewLoaded(object view)
-        //{
-        //    _navigationService.Navigate<UsersListViewModel>();
-        //}
     }
 }
