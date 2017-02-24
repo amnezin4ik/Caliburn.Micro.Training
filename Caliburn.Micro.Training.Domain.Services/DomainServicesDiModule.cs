@@ -1,5 +1,4 @@
 using Autofac;
-using Caliburn.Micro.Training.Domain.Services.Converters;
 using Caliburn.Micro.Training.Domain.Services.Services;
 
 namespace Caliburn.Micro.Training.Domain.Services
@@ -9,7 +8,6 @@ namespace Caliburn.Micro.Training.Domain.Services
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<UserService>().AsImplementedInterfaces();
-            builder.RegisterType<UserConverter>().AsSelf();
         }
     }
 }

@@ -32,13 +32,12 @@ namespace Caliburn.Micro.Training.Wpf
 
         private void RegisterAutomapperConfiguration(ContainerBuilder builder)
         {
-            var config = new MapperConfiguration(cfg =>
+            builder.Register(ctx => new MapperConfiguration(cfg =>
             {
-                cfg.ConstructServicesUsing(type => Container.Resolve(type));
-                cfg.AddProfile(new DomainServicesMappingProfile());
-            });
-            var mapper = config.CreateMapper();
-            builder.RegisterInstance(mapper).As<IMapper>();
+                cfg.ConstructServicesUsing(Container.Resolve);
+                cfg.AddProfile(typeof(DomainServicesMappingProfile));
+            }));
+            builder.Register(ctx => ctx.Resolve<MapperConfiguration>().CreateMapper()).As<IMapper>();
         }
 
         protected override void ConfigureBootstrapper()

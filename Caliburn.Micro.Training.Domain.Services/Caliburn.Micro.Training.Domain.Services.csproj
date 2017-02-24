@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Converters\UserConverter.cs" />
     <Compile Include="DomainServicesDiModule.cs" />
     <Compile Include="DomainServicesMappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
