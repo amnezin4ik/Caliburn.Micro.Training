@@ -4,9 +4,9 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels
 {
     public class UserInfoViewModel : Screen
     {
-        private readonly NavigationService _navigationService;
+        private readonly INavigationService _navigationService;
 
-        public UserInfoViewModel(NavigationService navigationService)
+        public UserInfoViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
         }

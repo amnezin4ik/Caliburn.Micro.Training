@@ -3,21 +3,21 @@ using Autofac;
 
 namespace Caliburn.Micro.Training.Wpf.Services
 {
-    public class NavigationService
+    public class NavigationService : INavigationService
     {
         private bool _isInitialized;
-        private readonly ILifetimeScope _container;
-        private IConductor _conductorWindow;
+        private readonly ILifetimeScope _diContainer;
+        private IConductor _conductor;
 
-        public NavigationService(ILifetimeScope container)
+        public NavigationService(ILifetimeScope diContainer)
         {
-            _container = container;
+            _diContainer = diContainer;
             _isInitialized = false;
         }
 
-        public void Initialize(IConductor conductorWindow)
+        public void Initialize(IConductor conductor)
         {
-            _conductorWindow = conductorWindow;
+            _conductor = conductor;
             _isInitialized = true;
         }
 
@@ -27,8 +27,8 @@ namespace Caliburn.Micro.Training.Wpf.Services
             {
                 throw new Exception("You should initialize this service before use it");
             }
-            var screen = (IScreen)_container.Resolve(typeof(T));
-            _conductorWindow.ActivateItem(screen);
+            var screen = (IScreen)_diContainer.Resolve(typeof(T));
+            _conductor.ActivateItem(screen);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Caliburn.Micro.Training.Wpf
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<NavigationService>().AsSelf().SingleInstance();
+            builder.RegisterType<NavigationService>().AsImplementedInterfaces().SingleInstance();
         }
     }
 }

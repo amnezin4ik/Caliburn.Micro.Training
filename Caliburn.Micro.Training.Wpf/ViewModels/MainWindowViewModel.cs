@@ -4,9 +4,9 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels
 {
     public class MainWindowViewModel : Conductor<IScreen>
     {
-        private readonly NavigationService _navigationService;
+        private readonly INavigationService _navigationService;
 
-        public MainWindowViewModel(NavigationService navigationService)
+        public MainWindowViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
         }

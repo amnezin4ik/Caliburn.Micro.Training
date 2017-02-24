@@ -9,9 +9,9 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels
     {
         private User _currentUser;
         private readonly IUserService _userService;
-        private readonly NavigationService _navigationService;
+        private readonly INavigationService _navigationService;
 
-        public UsersListViewModel(IUserService userService, NavigationService navigationService)
+        public UsersListViewModel(IUserService userService, INavigationService navigationService)
         {
             _userService = userService;
             _navigationService = navigationService;
