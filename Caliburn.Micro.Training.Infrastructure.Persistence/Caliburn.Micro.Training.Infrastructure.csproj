@@ -67,7 +67,6 @@
     <Compile Include="Database\DatabaseSqlConnectionFactory.cs" />
     <Compile Include="Database\IDatabaseSqlConnectionFactory.cs" />
     <Compile Include="Dto\User.cs" />
-    <Compile Include="Dto\UserPhoto.cs" />
     <Compile Include="InfrastructureDiModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IUserRepository.cs" />

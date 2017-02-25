@@ -1,13 +1,13 @@
-using System.ComponentModel;
+using System.Collections.ObjectModel;
+using Autofac;
 using Caliburn.Micro.Training.Domain.Model;
 using Caliburn.Micro.Training.Domain.Services.Services;
 using Caliburn.Micro.Training.Wpf.Services;
 
 namespace Caliburn.Micro.Training.Wpf.ViewModels
 {
-    public class UsersListViewModel : Screen, IDataErrorInfo
+    public class UsersListViewModel : Screen
     {
-        private User _currentUser;
         private readonly IUserService _userService;
         private readonly INavigationService _navigationService;
 
@@ -17,39 +17,58 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels
             _navigationService = navigationService;
         }
 
-        public User CurrentUser
+        private ObservableCollection<User> _users;
+        public ObservableCollection<User> Users
         {
-            get
-            {
-                return _currentUser;
-            }
+            get { return _users; }
             set
             {
-                _currentUser = value;
+                _users = value;
                 NotifyOfPropertyChange();
             }
         }
 
-        public void SimpleButton()
+        private User _selectedUser;
+        public User SelectedUser
+        {
+            get { return _selectedUser; }
+            set
+            {
+                _selectedUser = value;
+                NotifyOfPropertyChange();
+                NotifyOfPropertyChange(nameof(CanEditUser));
+                NotifyOfPropertyChange(nameof(CanDeleteUser));
+            }
+        }
+
+        public void AddUser()
         {
             _navigationService.Navigate<UserInfoViewModel>();
         }
 
+        public bool CanEditUser
+        {
+            get { return SelectedUser != null; }
+        }
+        public void EditUser()
+        {
+            _navigationService.Navigate<UserInfoViewModel>(new TypedParameter(typeof(User), SelectedUser));
+        }
+
+        public bool CanDeleteUser
+        {
+            get { return SelectedUser != null; }
+        }
+        public async void DeleteUser()
+        {
+            await _userService.DeleteUserAsync(SelectedUser.Id);
+            Users.Remove(SelectedUser);
+        }
+
         protected override async void OnInitialize()
         {
-            CurrentUser = await _userService.FindUser(1);
+            var allUsers = await _userService.GetAllUsersAsync();
+            Users = new ObservableCollection<User>(allUsers);
         }
-
-        #region IDataErrorInfo
-        public string this[string columnName]
-        {
-            get { return CurrentUser[columnName]; }
-        }
-
-        public string Error
-        {
-            get { return CurrentUser.Error; }
-        }
-        #endregion
     }
 }

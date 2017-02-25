@@ -5,15 +5,10 @@ namespace Caliburn.Micro.Training.Domain.Model
 {
     public class User : ModelBase
     {
-        private int _id;
-        private string _firstName;
-        private string _lastName;
-        private DateTime _dateOfBirth;
-        private string _email;
-
         public User(UserValidator validator)
             : base(validator) { }
 
+        private int _id;
         public int Id
         {
             get { return _id; }
@@ -24,6 +19,7 @@ namespace Caliburn.Micro.Training.Domain.Model
             }
         }
 
+        private string _firstName;
         public string FirstName
         {
             get { return _firstName; }
@@ -34,6 +30,7 @@ namespace Caliburn.Micro.Training.Domain.Model
             }
         }
 
+        private string _lastName;
         public string LastName
         {
             get { return _lastName; }
@@ -44,6 +41,7 @@ namespace Caliburn.Micro.Training.Domain.Model
             }
         }
 
+        private DateTime _dateOfBirth;
         public DateTime DateOfBirth
         {
             get { return _dateOfBirth; }
@@ -54,6 +52,7 @@ namespace Caliburn.Micro.Training.Domain.Model
             }
         }
 
+        private string _email;
         public string Email
         {
             get { return _email; }
@@ -62,6 +61,22 @@ namespace Caliburn.Micro.Training.Domain.Model
                 _email = value;
                 OnPropertyChanged();
             }
+        }
+
+        private string _photoPath;
+        public string PhotoPath
+        {
+            get { return _photoPath; }
+            set
+            {
+                _photoPath = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string FullName
+        {
+            get { return $"{FirstName} {LastName}"; }
         }
     }
 }

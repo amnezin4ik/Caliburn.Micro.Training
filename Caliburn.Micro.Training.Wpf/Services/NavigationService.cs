@@ -21,13 +21,13 @@ namespace Caliburn.Micro.Training.Wpf.Services
             _isInitialized = true;
         }
 
-        public void Navigate<T>() where T : IScreen
+        public void Navigate<T>(params global::Autofac.Core.Parameter[] parameters) where T : IScreen
         {
             if (_isInitialized == false)
             {
-                throw new Exception("You should initialize this service before use it");
+                throw new InvalidOperationException("You must initialize this service before use it");
             }
-            var screen = (IScreen)_diContainer.Resolve(typeof(T));
+            var screen = (IScreen)_diContainer.Resolve(typeof(T), parameters);
             _conductor.ActivateItem(screen);
         }
     }

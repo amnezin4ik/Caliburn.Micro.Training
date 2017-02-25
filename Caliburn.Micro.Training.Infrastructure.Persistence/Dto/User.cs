@@ -9,5 +9,6 @@ namespace Caliburn.Micro.Training.Infrastructure.Dto
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Email { get; set; }
+        public string PhotoPath { get; set; }
     }
 }

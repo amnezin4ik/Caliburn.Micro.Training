@@ -14,6 +14,12 @@ namespace Caliburn.Micro.Training.Domain.Model
             _validator = validator;
         }
 
+        public bool IsValid()
+        {
+            var validationResult = _validator.Validate(this);
+            return validationResult.IsValid;
+        }
+
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 

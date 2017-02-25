@@ -39,7 +39,10 @@ namespace Caliburn.Micro.Training.Infrastructure.Repository
         {
             using (IDbConnection db = _databaseSqlConnectionFactory.GetSqlConnection())
             {
-                var sqlQuery = "INSERT INTO [User] (Name, Age) VALUES(@Name, @Age); SELECT CAST(SCOPE_IDENTITY() as int)";
+                var sqlQuery = @"
+                    INSERT INTO [User] (FirstName, LastName, Email, DateOfBirth, PhotoPath) 
+                    VALUES(@FirstName, @LastName, @Email, @DateOfBirth, @PhotoPath); 
+                    SELECT CAST(SCOPE_IDENTITY() as int)";
                 var userIdQuery = await db.QueryAsync<int>(sqlQuery, user);
                 var userId = userIdQuery.FirstOrDefault();
                 user.Id = userId;
@@ -51,7 +54,9 @@ namespace Caliburn.Micro.Training.Infrastructure.Repository
         {
             using (IDbConnection db = _databaseSqlConnectionFactory.GetSqlConnection())
             {
-                var sqlQuery = "UPDATE [User] SET Name = @Name, Age = @Age WHERE Id = @Id";
+                var sqlQuery = @"
+                    UPDATE [User] SET FirstName = @FirstName, LastName = @LastName, Email = @Email, DateOfBirth = @DateOfBirth, PhotoPath = @PhotoPath
+                    WHERE Id = @Id";
                 await db.ExecuteAsync(sqlQuery, user);
             }
         }
