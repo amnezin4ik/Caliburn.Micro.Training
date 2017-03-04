@@ -19,7 +19,7 @@ namespace Caliburn.Micro.Training.Domain.Services.Validators
             RuleFor(user => user.Email)
                 .NotEmpty().WithMessage("Please Specify an e-mail address.")
                 .EmailAddress().WithMessage("Invalid e-mail address")
-                //.MustAsync((email, token) => userService.IsUserEmailUniqueAsync(email)).WithMessage("E-mail address must be unique")
+                //.MustAsync(async (email, token) => await userService.IsUserEmailUniqueAsync(email)).WithMessage("E-mail address must be unique")
                 ;
 
             RuleFor(user => user.DateOfBirth)

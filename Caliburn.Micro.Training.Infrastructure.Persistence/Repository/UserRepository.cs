@@ -74,7 +74,7 @@ namespace Caliburn.Micro.Training.Infrastructure.Repository
         {
             using (IDbConnection db = _databaseSqlConnectionFactory.GetSqlConnection())
             {
-                var sqlQuery = "SELECT TOP 1 Email FROM [User] WHERE Email = @email";
+                var sqlQuery = "SELECT TOP 1 Email FROM [User] WHERE Email LIKE '@email'";
                 var existingEmail = await db.QueryAsync<string>(sqlQuery, email);
                 var emailExists = existingEmail.Any();
                 return emailExists;
