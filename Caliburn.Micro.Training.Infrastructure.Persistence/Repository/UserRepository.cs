@@ -69,5 +69,16 @@ namespace Caliburn.Micro.Training.Infrastructure.Repository
                 await db.ExecuteAsync(sqlQuery, new { userId });
             }
         }
+
+        public async Task<bool> IsEmailUniqueAsync(string email)
+        {
+            using (IDbConnection db = _databaseSqlConnectionFactory.GetSqlConnection())
+            {
+                var sqlQuery = "SELECT TOP 1 Email FROM [User] WHERE Email = @email";
+                var existingEmail = await db.QueryAsync<string>(sqlQuery, email);
+                var emailExists = existingEmail.Any();
+                return emailExists;
+            }
+        }
     }
 }

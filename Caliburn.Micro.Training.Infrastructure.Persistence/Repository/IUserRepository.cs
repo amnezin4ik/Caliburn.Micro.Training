@@ -11,5 +11,6 @@ namespace Caliburn.Micro.Training.Infrastructure.Repository
         Task<User> GetAsync(int userId);
         Task<IEnumerable<User>> GetAllAsync();
         Task UpdateAsync(User user);
+        Task<bool> IsEmailUniqueAsync(string email);
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using AutoMapper;
 using Caliburn.Micro.Training.Domain.Model;
@@ -40,22 +39,20 @@ namespace Caliburn.Micro.Training.Domain.Services.Services
 
         public async Task AddUserAsync(User user)
         {
-            if (user.IsValid() == false)
-            {
-                throw new InvalidDataException("user must be valid");
-            }
             var userDto = _mapper.Map<User, Dto.User>(user);
             await _userRepository.CreateAsync(userDto);
         }
 
         public async Task UpdateUserAsync(User user)
         {
-            if (user.IsValid() == false)
-            {
-                throw new InvalidDataException("user must be valid");
-            }
             var userDto = _mapper.Map<User, Dto.User>(user);
             await _userRepository.UpdateAsync(userDto);
+        }
+
+        public async Task<bool> IsUserEmailUniqueAsync(string email)
+        {
+            var isUnique = await _userRepository.IsEmailUniqueAsync(email);
+            return isUnique;
         }
     }
 }

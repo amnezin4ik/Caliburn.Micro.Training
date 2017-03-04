@@ -11,5 +11,6 @@ namespace Caliburn.Micro.Training.Domain.Services.Services
         Task DeleteUserAsync(int userId);
         Task AddUserAsync(User user);
         Task UpdateUserAsync(User user);
+        Task<bool> IsUserEmailUniqueAsync(string email);
     }
 }

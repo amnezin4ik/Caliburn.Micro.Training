@@ -8,7 +8,7 @@ namespace Caliburn.Micro.Training.Domain.Services
     {
         public DomainServicesMappingProfile()
         {
-            CreateMap<Dto.User, User>().ConstructUsingServiceLocator().PreserveReferences();
+            CreateMap<Dto.User, User>().PreserveReferences();
             CreateMap<User, Dto.User>().PreserveReferences();
         }
     }

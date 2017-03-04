@@ -2,6 +2,7 @@ using System.Windows;
 using Autofac;
 using AutoMapper;
 using Caliburn.Micro.Autofac;
+using Caliburn.Micro.Training.Common;
 using Caliburn.Micro.Training.Domain;
 using Caliburn.Micro.Training.Domain.Services;
 using Caliburn.Micro.Training.Infrastructure;
@@ -24,9 +25,9 @@ namespace Caliburn.Micro.Training.Wpf
         protected override void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule<WpfDiModule>();
-            builder.RegisterModule<DomainDiModule>();
             builder.RegisterModule<InfrastructureDiModule>();
             builder.RegisterModule<DomainServicesDiModule>();
+            builder.RegisterModule<CommonDiModule>();
             RegisterAutomapperConfiguration(builder);
         }
 

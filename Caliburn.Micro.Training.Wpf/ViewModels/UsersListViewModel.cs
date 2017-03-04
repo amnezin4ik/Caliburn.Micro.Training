@@ -43,7 +43,7 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels
 
         public void AddUser()
         {
-            _navigationService.Navigate<UserInfoViewModel>();
+            _navigationService.Navigate<UserInfoViewModel>(new User());
         }
 
         public bool CanEditUser
@@ -52,7 +52,7 @@ namespace Caliburn.Micro.Training.Wpf.ViewModels
         }
         public void EditUser()
         {
-            _navigationService.Navigate<UserInfoViewModel>(new TypedParameter(typeof(User), SelectedUser));
+            _navigationService.Navigate<UserInfoViewModel>(SelectedUser);
         }
 
         public bool CanDeleteUser

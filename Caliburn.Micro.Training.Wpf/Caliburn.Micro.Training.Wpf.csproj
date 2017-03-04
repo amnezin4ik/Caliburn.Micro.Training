@@ -150,6 +150,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Caliburn.Micro.Training.Common\Caliburn.Micro.Training.Common.csproj">
+      <Project>{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}</Project>
+      <Name>Caliburn.Micro.Training.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Caliburn.Micro.Training.Domain.Services\Caliburn.Micro.Training.Domain.Services.csproj">
       <Project>{877D3061-71F8-42F6-ACFD-9DC3A29AA32B}</Project>
       <Name>Caliburn.Micro.Training.Domain.Services</Name>
@@ -162,6 +166,9 @@
       <Project>{A368C793-8ED7-4AC6-B9DA-2A9016040EAB}</Project>
       <Name>Caliburn.Micro.Training.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliburn.Micro.Training.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliburn.Micro.Training.Domain.Services", "Caliburn.Micro.Training.Domain.Services\Caliburn.Micro.Training.Domain.Services.csproj", "{877D3061-71F8-42F6-ACFD-9DC3A29AA32B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliburn.Micro.Training.Common", "Caliburn.Micro.Training.Common\Caliburn.Micro.Training.Common.csproj", "{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,22 @@ Global
 		{877D3061-71F8-42F6-ACFD-9DC3A29AA32B}.Release|x64.Build.0 = Release|Any CPU
 		{877D3061-71F8-42F6-ACFD-9DC3A29AA32B}.Release|x86.ActiveCfg = Release|Any CPU
 		{877D3061-71F8-42F6-ACFD-9DC3A29AA32B}.Release|x86.Build.0 = Release|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Debug|ARM.Build.0 = Debug|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Debug|x64.Build.0 = Debug|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Debug|x86.Build.0 = Debug|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Release|ARM.ActiveCfg = Release|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Release|ARM.Build.0 = Release|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Release|x64.ActiveCfg = Release|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Release|x64.Build.0 = Release|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Release|x86.ActiveCfg = Release|Any CPU
+		{5BBCA4BF-2917-4DDB-B360-34F9E4084BF6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

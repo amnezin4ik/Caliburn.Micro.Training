@@ -8,7 +8,7 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="First name" Margin="10" />
-            <TextBox Text="{Binding CurrentUser.FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Width="200" Margin="10">
+            <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Width="200" Margin="10">
                 <Validation.ErrorTemplate>
                     <ControlTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -21,7 +21,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Last name" Margin="10" />
-            <TextBox Text="{Binding CurrentUser.LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Width="200" Margin="10">
+            <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Width="200" Margin="10">
                 <Validation.ErrorTemplate>
                     <ControlTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -34,7 +34,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Email" Margin="10" />
-            <TextBox Text="{Binding CurrentUser.Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Width="200" Margin="10">
+            <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Width="200" Margin="10">
                 <Validation.ErrorTemplate>
                     <ControlTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -48,12 +48,21 @@
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Date of birth" Margin="10" />
-            <DatePicker SelectedDate="{Binding CurrentUser.DateOfBirth}"/>
+            <DatePicker SelectedDate="{Binding DateOfBirth, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <AdornedElementPlaceholder x:Name="textBox"/>
+                            <TextBlock Margin="10" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </DatePicker>
         </StackPanel>
         
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Photo" Margin="10" />
-            <TextBox Text="{Binding CurrentUser.PhotoPath, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" IsReadOnly="True" Width="200" Margin="10">
+            <TextBox Text="{Binding PhotoPath, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" IsReadOnly="True" Width="200" Margin="10">
                 <Validation.ErrorTemplate>
                     <ControlTemplate>
                         <StackPanel Orientation="Horizontal">
