@@ -3,43 +3,70 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:localization="clr-namespace:Caliburn.Micro.Training.Wpf.Properties"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" 
+             d:DesignWidth="300"
+             >
     <StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="First name" Margin="10" />
-            <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Width="200" Margin="10">
+            <TextBlock Text="First name" 
+                       Margin="10" 
+                       />
+            <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+                     Width="200" 
+                     Margin="10"
+                     >
                 <Validation.ErrorTemplate>
                     <ControlTemplate>
                         <StackPanel Orientation="Horizontal">
                             <AdornedElementPlaceholder x:Name="textBox"/>
-                            <TextBlock Margin="10" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                            <TextBlock Margin="10" 
+                                       Text="{Binding [0].ErrorContent}" 
+                                       Foreground="Red"
+                                       />
                         </StackPanel>
                     </ControlTemplate>
                 </Validation.ErrorTemplate>
             </TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Last name" Margin="10" />
-            <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Width="200" Margin="10">
+            <TextBlock Text="Last name" 
+                       Margin="10" 
+                       />
+            <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+                     Width="200"
+                     Margin="10"
+                     >
                 <Validation.ErrorTemplate>
                     <ControlTemplate>
                         <StackPanel Orientation="Horizontal">
                             <AdornedElementPlaceholder x:Name="textBox"/>
-                            <TextBlock Margin="10" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                            <TextBlock Margin="10" 
+                                       Text="{Binding [0].ErrorContent}"
+                                       Foreground="Red"
+                                       />
                         </StackPanel>
                     </ControlTemplate>
                 </Validation.ErrorTemplate>
             </TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Email" Margin="10" />
-            <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Width="200" Margin="10">
+            <TextBlock Text="Email" 
+                       Margin="10"
+                       />
+            <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Width="200"
+                     Margin="10"
+                     >
                 <Validation.ErrorTemplate>
                     <ControlTemplate>
                         <StackPanel Orientation="Horizontal">
                             <AdornedElementPlaceholder x:Name="textBox"/>
-                            <TextBlock Margin="10" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                            <TextBlock Margin="10" 
+                                       Text="{Binding [0].ErrorContent}"
+                                       Foreground="Red"
+                                       />
                         </StackPanel>
                     </ControlTemplate>
                 </Validation.ErrorTemplate>
@@ -47,13 +74,18 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Date of birth" Margin="10" />
+            <TextBlock Text="Date of birth" 
+                       Margin="10" 
+                       />
             <DatePicker SelectedDate="{Binding DateOfBirth, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                 <Validation.ErrorTemplate>
                     <ControlTemplate>
                         <StackPanel Orientation="Horizontal">
                             <AdornedElementPlaceholder x:Name="textBox"/>
-                            <TextBlock Margin="10" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                            <TextBlock Margin="10" 
+                                       Text="{Binding [0].ErrorContent}" 
+                                       Foreground="Red"
+                                       />
                         </StackPanel>
                     </ControlTemplate>
                 </Validation.ErrorTemplate>
@@ -62,22 +94,37 @@
         
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Photo" Margin="10" />
-            <TextBox Text="{Binding PhotoPath, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" IsReadOnly="True" Width="200" Margin="10">
+            <TextBox Text="{Binding PhotoPath, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+                     IsReadOnly="True" 
+                     Width="200"
+                     Margin="10"
+                     >
                 <Validation.ErrorTemplate>
                     <ControlTemplate>
                         <StackPanel Orientation="Horizontal">
                             <AdornedElementPlaceholder x:Name="textBox"/>
-                            <TextBlock Margin="10" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                            <TextBlock Margin="10" 
+                                       Text="{Binding [0].ErrorContent}" 
+                                       Foreground="Red"
+                                       />
                         </StackPanel>
                     </ControlTemplate>
                 </Validation.ErrorTemplate>
             </TextBox>
-            <Button Name="SelectPhoto" Content="Select"></Button>
+            <Button Name="SelectPhoto"
+                    Content="Select"
+                    />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
-            <Button Name="Cancel" HorizontalAlignment="Right" Content="Cancel"></Button>
-            <Button Name="Save" HorizontalAlignment="Right" Content="Save"></Button>
+            <Button Name="Cancel" 
+                    HorizontalAlignment="Right" 
+                    Content="{x:Static localization:Resources.CancelButton}"
+                    />
+            <Button Name="Save" 
+                    HorizontalAlignment="Right" 
+                    Content="{x:Static localization:Resources.SaveButton}"
+                    />
         </StackPanel>
         
     </StackPanel>

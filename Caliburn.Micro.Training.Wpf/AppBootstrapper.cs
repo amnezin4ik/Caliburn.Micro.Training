@@ -3,7 +3,6 @@ using Autofac;
 using AutoMapper;
 using Caliburn.Micro.Autofac;
 using Caliburn.Micro.Training.Common;
-using Caliburn.Micro.Training.Domain;
 using Caliburn.Micro.Training.Domain.Services;
 using Caliburn.Micro.Training.Infrastructure;
 using Caliburn.Micro.Training.Wpf.ViewModels;

@@ -3,31 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:localization="clr-namespace:Caliburn.Micro.Training.Wpf.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
-        <Label Content="Users list" Margin="10"/>
+        <Label Content="{x:Static localization:Resources.UsersList}" 
+            Margin="10"
+            />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackPanel>
-                <ListBox Name="Users" HorizontalAlignment="Center" Height="200" Width="100">
+                <ListBox Name="Users" 
+                         HorizontalAlignment="Center" 
+                         Height="200" 
+                         Width="100"
+                         >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding FullName}" Margin="5" />
+                                <TextBlock Text="{Binding FullName}" 
+                                           Margin="5" 
+                                           />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
             </StackPanel>
             <StackPanel Grid.Column="1">
-                <Image Source="{Binding SelectedUser.PhotoPath}" Width="100" Height="100"/>
-                <Button Name="AddUser" Content="Add" />
-                <Button Name="EditUser" Content="Edit" />
-                <Button Name="DeleteUser" Content="Remove" />
+                <Image Source="{Binding SelectedUser.PhotoPath}" 
+                       Width="100" 
+                       Height="100"
+                       />
+                <Button Name="AddUser" 
+                        Content="{x:Static localization:Resources.AddButton}" 
+                        />
+                <Button Name="EditUser" 
+                        Content="{x:Static localization:Resources.EditButton}" 
+                        />
+                <Button Name="DeleteUser" 
+                        Content="{x:Static localization:Resources.RemoveButton}" 
+                        />
             </StackPanel>
         </Grid>
     </StackPanel>

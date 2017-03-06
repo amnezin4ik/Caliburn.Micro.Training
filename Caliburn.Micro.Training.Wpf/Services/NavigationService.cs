@@ -7,11 +7,13 @@ namespace Caliburn.Micro.Training.Wpf.Services
     public class NavigationService : INavigationService
     {
         private readonly ILifetimeScope _diContainer;
+        private readonly IWindowManager _windowManager;
         private IConductor _conductor;
 
-        public NavigationService(ILifetimeScope diContainer)
+        public NavigationService(ILifetimeScope diContainer, IWindowManager windowManager)
         {
             _diContainer = diContainer;
+            _windowManager = windowManager;
         }
 
         public void Initialize(IConductor conductor)
@@ -23,7 +25,7 @@ namespace Caliburn.Micro.Training.Wpf.Services
         {
             if (_conductor == null)
             {
-                throw new InvalidOperationException("You must initialize this service before use it");
+                throw new InvalidOperationException("You should initialize this service before use it");
             }
 
             List<global::Autofac.Core.Parameter> typedParameters = new List<global::Autofac.Core.Parameter>();
